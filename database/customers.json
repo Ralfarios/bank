@@ -1,0 +1,23 @@
+[
+  {
+    "identityNumber": "8291734682556428",
+    "fullName": "Hatsune Miku",
+    "address": "Tokyo, Japan",
+    "birthDate": "2007-08-31",
+    "gender": "female"
+  },
+  {
+    "identityNumber": "1346792839171926",
+    "fullName": "Diluc Ragnvindr",
+    "address": "Mondstadt, Teyvat",
+    "birthDate": "1982-04-30",
+    "gender": "male"
+  },
+  {
+    "identityNumber": "7346192837649182",
+    "fullName": "Lemonna Koujiki",
+    "address": "Jakarta, Indonesia",
+    "birthDate": "1998-11-18",
+    "gender": "female"
+  }
+]
