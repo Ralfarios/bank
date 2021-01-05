@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acc List || H8Bank</title>
+  <style>
+    body {
+      margin: auto 4vw;
+    }
+
+    table {
+      width: 100%;
+    }
+
+    table,
+    td,
+    th {
+      border: thin solid black;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Hello, <%= data.fullName %>!</h1>
+  <a href="/customers/">Back to Customers List</a> <br> <br>
+
+  <table>
+    <thead>
+      <th>Account Number</th>
+      <th>Type</th>
+      <th>Balance</th>
+      <th>Action</th>
+    </thead>
+
+    <tbody>
+      <% data.Accounts.forEach(e=> { %>
+        <tr>
+          <td>
+            <%= e.accountNumber %>
+          </td>
+          <td>
+            <%= e.type %>
+          </td>
+          <td>
+            <%= formatter(parseFloat(e.balance)) %>
+          </td>
+          <td><a href="/customers/<%= data.id %>/accounts/<%= e.id %>/transfer">transfer</a></td>
+        </tr>
+        <% }); %>
+    </tbody>
+
+  </table>
+
+  <h2>Add Account</h2>
+  <form action="/customers/<%= data.id %>/accounts" method="POST">
+    <label for="type">Account Type</label><br><br>
+    <select name="type">
+      <option value="">-- SELECT TYPE --</option>
+      <option value="onAccount">On Account</option>
+      <option value="xtraPayroll">Xtra Payroll</option>
+      <option value="tabunganku">Tabunganku</option>
+    </select><br><br><br>
+
+    <label for="balance">Balance</label><br><br>
+    <input type="text" name="balance" placeholder="0"><br><br><br>
+
+    <input type="submit" value="Save">
+  </form>
+
+</body>
+
+</html>

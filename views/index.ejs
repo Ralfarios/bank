@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customers || H8 Bank</title>
+  <style>
+    body {
+      margin: auto 4vw;
+    }
+
+    table {
+      width: 100%;
+    }
+
+    table,
+    td,
+    th {
+      border: thin solid black;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Customers List</h1>
+  <a href="/customers/register">Register as Customer</a> <br> <br>
+
+  <table>
+    <thead>
+      <th>Full Name</th>
+      <th>ID Number</th>
+      <th>Address</th>
+      <th>Birth Date</th>
+      <th>Gender</th>
+      <th>Action</th>
+    </thead>
+
+    <tbody>
+      <% data.forEach(e=> { %>
+        <tr>
+          <td>
+            <%= e.fullName %>
+          </td>
+          <td>
+            <%= e.identityNumber %>
+          </td>
+          <td>
+            <%= e.address %>
+          </td>
+          <td>
+            <%= e.birthDate %>
+          </td>
+          <td>
+            <%= e.gender %>
+          </td>
+          <td><a href="/customers/<%= e.id %>/accounts">View Account</a> || <a
+              href="/customers/<%= e.id %>/editProfile">Edit Profile</a></td>
+        </tr>
+        <% }); %>
+    </tbody>
+  </table>
+
+</body>
+
+</html>

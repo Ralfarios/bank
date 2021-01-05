@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transfer || H8Bank</title>
+  <style>
+    body {
+      margin: auto 4vw;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Transfer Money</h1>
+
+  <a href="/customers/<%= accountData.CustomerId %>/accounts">Back to Account List</a> <br> <br>
+
+  <b>From <%= accountData.accountNumber %>
+      <%=accountData.type %>
+        <%= accountData.balance %></b><br><br>
+
+    <form action="/customers/<%= accountData.CustomerId %>/accounts/<%= accountData.id %>/transfer" method="POST">
+      <label for="amount">Amount:</label>
+      <input type="text" name="amount" placeholder="0"> <br><br>
+
+      <label for="accountNumber">Transfer To:</label>
+      <select name="accountID">
+        <option value="">-- SELECT --</option>
+        <% data.forEach(e=> { %>
+          <option value="<%= e.id %>">
+            <%= e.accountNumber %> - <%= e.Customer.fullName %>
+          </option>
+          <% }); %>
+      </select> <br><br>
+
+      <input type="submit" value="Transfer">
+    </form>
+
+</body>
+
+</html>
